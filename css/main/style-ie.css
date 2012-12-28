@@ -1,0 +1,31 @@
+/*pngfix*/
+.pngFix, span .pngFix, article .pngFix, section .pngFix, div .pngFix , img .pngFix{ behavior: url(js/iepngfix.htc) }
+
+/* TOOL TIPS*/
+#wrapper {
+
+    -pie-background: linear-gradient(#ffffff,#ffffff);
+    behavior: url(js/ie/PIE.htc);
+
+}
+
+/*IE tooltips*/
+span.show-tooltip-text { display: none; position: absolute;
+    font-size: 0.9em;
+    padding: 12px;
+    color: WHITE;
+    color: white;
+    background:black;
+    border-bottom:#c1c1c1 1px solid;
+    border-left:#d2d2d2 1px solid;
+    border-radius:5px;
+    border-right:#d2d2d2 1px solid;
+    border-top:#d2d2d2 1px solid;
+    box-shadow:0 1px 5px #eaeaea;
+
+/*        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#f1f1f1');*/
+}
+
+.info_main_banner
+, .divs
+{ behavior: url(js/ie/PIE.htc);}

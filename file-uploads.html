@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <base href="./" /><!--[if lte IE 6]></base><![endif]-->
+
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="">
+    <meta name="author" content="jaehoo">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>File transfer examples</title>
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/main/style.css"/>
+    <link rel="stylesheet" href="css/html5forms.css"/>
+    <link rel="stylesheet" href="css/fileuploader.css"/>
+
+    <!-- Scripts -->
+
+    <script src="js/modernizr/modernizr.custom.33627.js"></script>
+    <script src="js/modernizr/yepnope.css-prefix.js"></script>
+    <script src="js/modernizr/yepnope.ie-prefix.js"></script>
+
+    <script src="js/jquery/jquery-1.6.2.min.js"></script>
+    <script src="js/oz/oz.js"></script>
+
+    <script src="js/utils/html5forms.js"></script>
+    <script src="js/utils/webLoader.js"></script>
+    <script src="js/utils/fileuploader.js"></script>
+
+
+    <style type="text/css">
+        #ajaxUploader, #downloader{
+            display: none;
+            color:#656565;;
+        }
+        .divs{
+            margin: 10px;
+
+            box-shadow: 0 1px 2px #777;
+            padding: 10px;
+            background: #f5f5f5;
+            width: 600px;
+
+        }
+
+        p{
+            margin: 5px 0;
+            font-family: Helvetica;
+            font-size: 12px;
+            color:#656565;
+        }
+
+        h2{
+            padding: 10px;
+            font-size: 14pt; color:#656565;
+
+            text-shadow: 1px 1px #FFFFFF;
+        }
+
+        form{
+            padding: 10px;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+<div id="wrapper" >
+
+    <div id="content" class="clearfix">
+        <div class="divs">
+            <label>File manager actions:</label>
+
+            <select id="mselect">
+                <option value="1" selected="">Upload Files with Html Web Form</option>
+                <option value="2">Upload files with Ajax</option>
+                <option value="3">Download File...</option>
+            </select>
+        </div>
+
+
+        <div id="formUploader" class="divs">
+
+            <h2>Html form uploader</h2>
+
+            <div>
+
+                <h3>Single file upload.</h3>
+                <p>
+                    Permite Cargar un solo archivo por cada input a través de un form html.
+                </p>
+                <!-- htmlUploadDocAbm.html-->
+                <form action="test_htmlFileUploader.html" method="post" enctype="multipart/form-data">
+
+                    <p>
+                        <label>Persist Method:</label>
+                        <select name="persistMethod">
+                            <option value="1">To File System</option>
+                            <option value="2" selected="">To Data Base</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label>Parameter:</label>
+                        <input name="parameter1" type="text"/>
+                    </p>
+                    <p>
+                        <input name="file" type="file" multiple="multiple"/>
+                        <br />
+                        <input name="file2" type="file" multiple="multiple"/>
+                        <br />
+                        <input type="submit" value="Upload"/>
+                    </p>
+
+                </form>
+            </div>
+            <br />
+            <div>
+                <h3>Multiple file uploads.</h3>
+                <p>
+                    Permite Cargar un o varios archivos por cada input.
+                </p>
+
+                <form action="test_htmlFileUploader.html" enctype="multipart/form-data" method="POST" >
+
+                    <p>
+                        <label>Persist Method:</label>
+                        <select name="persistMethod">
+                            <option value="1">To File System</option>
+                            <option value="2">To Data Base</option>
+                        </select>
+                    </p>
+
+                    <input type="hidden" name="docType" value="1"/>
+                    <input type="hidden" name="fileType" value="1"/>
+
+                    <input type="file"  multiple="multiple" name="file"/>
+                    <br />
+                    <input type="submit" value="Upload"/>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <div id="ajaxUploader" class="divs">
+
+
+            <h2>Ajax file Uploader </h2>
+
+            <p>Permite cargar uno o mas archivos 1:N(To Directory)</p>
+
+            <div id="fu_doc1">
+                <noscript>
+                    <p>Please enable JavaScript to use file uploader.</p>
+                    <!-- or put a simple form for upload here -->
+                </noscript>
+            </div>
+
+            <p>Permite cargar uno o mas archivos 1:N(To Data base)</p>
+
+            <div id="fu_doc2">
+                <noscript>
+                    <p>Please enable JavaScript to use file uploader.</p>
+                    <!-- or put a simple form for upload here -->
+                </noscript>
+            </div>
+
+        </div>
+
+        <div id="downloader" class="divs">
+
+            <h2>Download file from database</h2>
+            <form action="downloadFile.html" method="post" >
+                <p>
+                    <label>Persist Method:</label>
+                    <select name="persistMethod">
+                        <option value="1">From File System</option>
+                        <option value="2" selected="">From Data Base</option>
+                    </select>
+                </p>
+                <input name="docId" type="text"/>
+                <input type="submit" value="DESCARGAR"/>
+            </form>
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+</body>
+<script>
+
+
+    Modernizr.load([
+        'ielt8!js/ie/iepngfix_tilebg.js'
+        , 'ielt9!ie9!css/main/style-ie.css'
+    ]);
+
+    $(function(){
+
+        Modernizr.load({
+            test: Modernizr.cssgradients,
+            yep: 'js/jquery/jquery.css3finalize.min.js',
+            nope: '',
+            callback: function (url, result, key) {
+                //alert('script.js has loaded!:'+result);
+            }
+        });
+
+    });
+
+    $(function(){
+        // alert('=) ready');
+        //'ajaxUploadDocAbm.html'
+        webLoader.createUploader({
+            id: 'fu_doc1',
+            action: 'test_htmlFileUploader.html',
+            params: {
+                fileType: 'pdf', docType: 1, persistMethod: 1
+            }
+            ,multiple:true
+
+        });
+
+        webLoader.createUploader({
+            id: 'fu_doc2',
+            action: 'test_ajaxFileUploder.html',
+            params: {
+                fileType: 'jpg', docType: 1,persistMethod: 2
+            }
+            ,multiple:true
+        });
+
+
+        $('#mselect').change(function(){
+
+            $('#formUploader').css('display','none');
+            $('#ajaxUploader').css('display','none');
+            $('#downloader').css('display','none');
+
+
+            if($(this).val()==1){
+                $('#formUploader').slideDown();
+            }
+            else if($(this).val()==2){
+                $('#ajaxUploader').slideDown();
+            }
+            else if($(this).val()==3){
+                $('#downloader').slideDown();
+            }
+
+        });
+
+    });
+</script>
+</html>
+
+

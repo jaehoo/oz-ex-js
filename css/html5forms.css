@@ -1,0 +1,67 @@
+
+.vform form, .vform form * {
+}
+.vform fieldset {
+    background-color: #FCFFFC;
+
+}
+.vform label {
+    display: block;
+}
+.vform label * {
+    color: black;
+    text-transform: uppercase;
+}
+.vform input, .vform select, .vform textarea {
+
+ text-transform: uppercase;
+
+}
+.vform input {
+    border: 1px solid #7f9db9;
+}
+.vform select {
+    border: 1px solid #7f9db9;
+}
+.vform textarea {
+    overflow: auto;
+}
+.vform option {
+    color: black;
+}
+/*.vform button {    display: block;}*/
+.vform .placeholder {
+    color: gray;
+}
+.vform .placeholder:focus {
+    color: black;
+}
+.vform .required {
+    background-color: #FFF;
+}
+.vform .required:focus {
+    background-color: #feffa7;
+}
+.vform [placeholder=""] {
+    color: gray;
+}
+.vform [placeholder=""]:focus {
+    color: black;
+}
+.vform [required] {
+    background-color: #FFF;
+}
+.vform [required]:focus {
+    background-color: #feffa7;
+}
+.vform .focused {
+    background-color: #feffa7;
+}
+.vform .mismatch {
+    background-image: url("../images/html5/mismatch.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+
+
+}
+

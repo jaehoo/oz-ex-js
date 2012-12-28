@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style type="text/css">
+
+
+        #Slider span{
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            display: block;
+            margin: 5px;
+            font-weight: bold;
+            text-shadow: #fff 1px 1px;
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        #Slider2 span{
+            width: 100px;
+            height: 100px;
+            background-color: #017ba8;
+            display: block;
+            margin: 5px;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: #111111 1px 1px;
+            text-align: center;
+            padding-top: 10px;
+            position: relative;
+
+        }
+
+        #Slider3 span{
+            width: 100px;
+            height: 100px;
+            background-color: #ea3200;
+            display: block;
+            margin: 5px;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: #111111 1px 1px;
+            text-align: center;
+            padding-top: 10px;
+            position: relative;
+
+        }
+
+    </style>
+
+
+    <base href="./" /><!--[if lte IE 6]></base><![endif]-->
+
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="">
+    <meta name="author" content="jaehoo">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Jquery Slide Animations Test</title>
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/main/style.css"/>
+    <link rel="stylesheet" href="css/html5forms.css"/>
+
+    <script src="js/modernizr/modernizr.custom.33627.js"></script>
+    <script src="js/modernizr/yepnope.css-prefix.js"></script>
+    <script src="js/modernizr/yepnope.ie-prefix.js"></script>
+
+    <script src="js/jquery/jquery-1.6.2.min.js"></script>
+    <script src="js/oz/oz.js"></script>
+    <!--<script src="js/ie/iepngfix_tilebg.js"></script>-->
+
+    <script src="js/utils/html5forms.js"></script>
+    <script src="js/utils/webLoader.js"></script>
+
+    <!-- <script src="js/jquery/jquery.form.js"></script>
+    <script src="js/jquery/jquery-ui.min.js"></script>
+    <script src="js/jquery/jquery.cssmenu.js"></script>-->
+    <script type="text/javascript">OZ.pageSlideEx();</script>
+
+
+</head>
+
+<body>
+
+
+    <div id="wrapper">
+
+        <div id="content" class="clearfix">
+            <div id="Slider">
+
+                <h2>Fade THEN Slide...</h2>
+                <label>Show or Hide 2nd second span!</label>
+                <input id="triggerBtn"type="button" value="show or hide"/>
+
+                <span><h3>Elemento 1</h3></span>
+                <span id="example"><h3>Elemento 2</h3></span>
+                <span><h3>Elemento 3</h3></span>
+
+
+            </div>
+
+            <br/>
+            <div id="Slider2" style="position: relative;">
+
+                <h2>Slide AND Fade...</h2>
+                <label>Show or Hide 2nd second span!</label>
+                <input id="triggerBtn2"type="button" value="Slide an fade"/>
+                <span ><h3>Elemento 1</h3></span>
+                <span id="example2"><h3>Elemento 2</h3></span>
+                <span ><h3>Elemento 3</h3></span>
+
+            </div>
+
+            <br/>
+            <div id="Slider3" style="position: relative;">
+
+                <h2>Animate from left AND Fade...</h2>
+                <label>Show or Hide 2nd second span!</label>
+                <input id="triggerBtn3"type="button" value="Slide an fade"/>
+                <span ><h3>Elemento 1</h3></span>
+                <span id="example3"><h3>Elemento 2</h3></span>
+                <span ><h3>Elemento 3</h3></span>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+</body>
+
+<script type="text/javascript">
+
+    jQuery.fn.fadeThenSlideToggle = function(speed, easing, callback) {
+        if (this.is(":hidden")) {
+            return this.slideDown(speed, easing).fadeTo(speed, 1, easing, callback);
+        } else {
+            return this.fadeTo(speed, 0, easing).slideUp(speed, easing, callback);
+        }
+    };
+
+    jQuery.fn.slideAndFadeToggle = function(speed, easing, callback) {
+        if (this.is(":hidden")) {
+
+            this.animate({ opacity: 1, top: "0px", height: 'toggle'}, 400, function() {/* Animation complete.*/});
+
+        } else {
+            this.animate({ opacity: 0, top: "0px",height: 'toggle'}, 400, function() {/* Animation complete.*/});
+        }
+    };
+
+    jQuery.fn.slideAndFadeToggleB = function(speed, easing, callback) {
+        //  console.info("isHidenn: "+this.is(":hidden"));
+        if (this.is(":hidden")) {
+
+            //this.animate({ left: "0px"});
+            this.css('display', '');
+            this.animate({ opacity: 1, left: "0px"}, 400,function() {$(this).css('display', '');});
+
+        } else {
+
+            this.animate({ opacity: 0, left: "600px"}, 400,function() {$(this).css('display', 'none');});
+        }
+    };
+
+    $(document).ready(function() {
+
+        var el=$('#example');
+        $('#triggerBtn').click(function() { el.fadeThenSlideToggle(); });
+
+        var el2=$('#example2');
+        $('#triggerBtn2').click(function() { el2.slideAndFadeToggle();});
+
+        var el3=$('#example3');
+        $('#triggerBtn3').click(function() { el3.slideAndFadeToggleB();});
+
+
+    });
+
+</script>
+
+</html>
