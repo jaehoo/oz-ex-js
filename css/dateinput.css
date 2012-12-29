@@ -52,13 +52,13 @@
 	display:block;
 	width:20px;
 	height:20px;
-	background:transparent url(../images/dateinput/prev.gif) no-repeat scroll center center;
+	background:transparent url(../img/dateinput/prev.gif) no-repeat scroll center center;
 	float:left;
 	cursor:pointer;
 }
 
 #calnext {
-	background-image:url(../images/dateinput/next.gif);
+	background-image:url(../img/dateinput/next.gif);
 	float:right;
 }
 

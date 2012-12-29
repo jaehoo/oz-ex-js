@@ -119,3 +119,17 @@ body > #wrapper {
 }
 
 
+.header{
+
+
+    background: linear-gradient(#4DA1F8, #307DCD);
+
+    background-color: white;
+    display: block;
+    height: 90px;
+    margin: 0 auto;
+    min-width: 920px;
+    text-align: left;
+    width: 920px;
+}
+

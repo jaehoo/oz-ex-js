@@ -9,6 +9,10 @@
 
 }
 
+.header{
+    -pie-background: linear-gradient(#4DA1F8, #307DCD);
+}
+
 /*IE tooltips*/
 span.show-tooltip-text { display: none; position: absolute;
     font-size: 0.9em;
@@ -28,4 +32,5 @@ span.show-tooltip-text { display: none; position: absolute;
 
 .info_main_banner
 , .divs
+, .header
 { behavior: url(js/ie/PIE.htc);}
