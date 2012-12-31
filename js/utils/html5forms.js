@@ -370,6 +370,8 @@ function html5forms(global) {
 				if (!element.name || element.type == 'hidden' || element.disabled || element.readOnly) {
 					continue;
 				}
+
+
 				// test using getAttributeNode instead of getAttribute to avoid
 				// false positives on Opera 7.50, IE6 and other older browsers
 				// only perform validation if the control value is not empty (@mathias, @miketaylr)
@@ -384,7 +386,7 @@ function html5forms(global) {
 						break;
 					}
 				}
-                /*alert("required: {"+element.getAttributeNode('required').value +"}\n " +
+                /*console.info("required: {"+element.getAttributeNode('required').value +"}\n " +
                         "value: {"+ element.value + "}\n" +
                         "placeholder: {"+element.getAttribute('placeholder') +"}\n " +
                         "elemento__: {"+element.getAttribute('name')+"}\n"+
@@ -392,8 +394,9 @@ function html5forms(global) {
                 );*/
 
 
-				if (element.getAttributeNode('required') && (element.value === '' || element.getAttribute('placeholder') == element.value)) {
+				if ( element.getAttributeNode('required') && (element.value === '' || element.getAttribute('placeholder') == element.value)) {
                     html5forms.submit=false;
+
 
 					if ('selectedIndex' in element && (k = element.selectedIndex) > -1) {
 						// expectation here is for a value or at least index > 0 and valid text

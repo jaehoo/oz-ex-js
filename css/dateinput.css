@@ -124,7 +124,8 @@ a.calsun {
 
 /* offmonth day */
 a.caloff {
-	color:#ccc;		
+	color:#ccc;
+    background-color: #F1F1F1;
 }
 
 a.caloff:hover {

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <base href="./" /><!--[if lte IE 6]></base><![endif]-->
+
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="">
+    <meta name="author" content="jaehoo">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Jquery Slide Animations Test</title>
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/main/style.css"/>
+    <link rel="stylesheet" href="css/html5forms.css"/>
+
+    <script src="js/modernizr/modernizr.custom.33627.js"></script>
+    <script src="js/modernizr/yepnope.css-prefix.js"></script>
+    <script src="js/modernizr/yepnope.ie-prefix.js"></script>
+
+    <script src="js/jquery/jquery-1.6.2.min.js"></script>
+    <script src="js/oz/oz.js"></script>
+
+    <script src="js/utils/html5forms.js"></script>
+
+
+
+
+
+
+</head>
+
+<body>
+
+<header class="header">
+    <!--HEADER   dateinput styling -->
+
+    <div class="bg_logo_oz">
+        <a>
+            <span class="logo_oz pngFix" title="Jaehoo Js Examples OZ">&nbsp;</span>
+        </a>
+    </div>
+</header>
+
+
+<div id="wrapper" >
+
+    <div id="content" class="clearfix">
+        <section>
+
+            <div class="oz_comments">
+                <code style="">
+                    Se pueden utilizar diferentes elementos para activar el envio de datos con ajax a través de <mark>Jquery Form</mark>:
+                    <ul class="oz_list">
+                        <li><mark>Tag input</mark></li>
+                        <li><mark>Tag button</mark></li>
+                        <li><mark>Tag a</mark></li>
+                    </ul>
+
+                    Para el caso del button puede animarse con im&aacute;genes.
+
+                </code>
+            </div>
+
+            <h2>Enviar datos Jquery Form</h2>
+
+            <div class="datos_f2  sec_data_fu vform clearfix">
+
+                <form  id="ajaxform3" name="ajaxform3" action="./forms-example3.html" onsubmit="this.action='?'+(new Date).getTime()" method="POST">
+
+                    <p>
+                        <label>Mail:</label>
+
+                        <input name="email" id="email" type="text"
+                               class="required"
+                               placeholder="name@ejemplo.com"
+                               style="text-transform: none;"
+                               required=""
+                               pattern="^[-\w-\.]+@(?:[\w]{2,})(?:\.[\w]{2,})?(?:\.[a-zA-Z]{2,6})$"
+                               title="Tu direcci&oacute;n de correo (ex: name@ejemplo.com)"
+                               maxlength="50"
+
+                                />
+
+                    </p>
+
+
+                    <p>
+                        <label>Name:</label>
+
+                        <input name="name" type="text"
+                               class="required placeholder"
+                               placeholder="Escribe tu nombre"
+                               required/>
+                    </p>
+
+
+                    <h3>Trigger with tag input</h3>
+                    <input id="bt_sub" type="submit" value="Enviar" class="button"/>
+
+
+
+                    <h3>Trigger with tag a</h3>
+                    <a id="aboton" onclick="this.blur(); return false;">
+                        <span class="left_btn"></span><span class="mid_btn vertical"><span class="lbl">ENVIAR</span></span><span class="right_btn"></span>
+                    </a>
+
+                    <h3>Trigger with tag button</h3>
+                    <button  class="abm_bt" type="submit">Enviar</button> <button  class="abm_bt">
+                    <img class="img_load" src="img/html5/loadings/239.gif" alt="loading">Siguiente</button>
+
+
+
+
+
+                </form>
+            </div>
+
+            <div id="test_target">::::: TARGET ::::</div>
+
+        </section>
+
+
+
+    </div>
+
+</div>
+
+
+
+
+</body>
+
+<script type="text/javascript">
+
+
+
+    Modernizr.load({
+                load:[
+                    'ielt8!js/ie/iepngfix_tilebg.js'
+                    , 'ielt9!ie9!css/main/style-ie.css'
+                    , 'js/jquery/jquery.tools.min.js'
+                    , 'css/dateinput.css'
+                    , 'js/jquery/jquery.cssmenu.js'
+                ]
+                , callback: {
+
+                    "jquery.tools.min.js": function () {
+                        console.info('loader');
+                        console.log("jquery loaded!");
+
+
+                        $.tools.dateinput.localize("es", {
+                            months: 'Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre',
+                            shortMonths:  'Ene,Feb,Mar,Abr,May,Jun,Jul,Ago,Sep,Oct,Nov,Dic',
+                            days:         'Domingo,Lunes,Martes,Miercoles,Jueves,Viernes,Sabado',
+                            shortDays:    'Dom,Lun,Mar,Mie,Jue,Vie,Sab'
+                        });
+
+                        $("input:date").dateinput({
+                            selectors: true
+                        });
+
+
+
+                    }
+                }
+            }
+    );
+
+    $(function(){
+
+
+
+        html5forms.create(this);
+
+        $(function(){
+
+            var btns=$('.abm_bt');
+            var el=$(document.createElement('span'));
+
+            btns.each(function(){
+
+                var lbt=el.clone();
+                var mbt=el.clone();
+                var rbt=el.clone();
+
+                var cont=$(this).html();
+
+                $(this).html('');
+
+                rbt.addClass('r_bt');
+                mbt.addClass('m_bt').html(cont);
+                lbt.addClass('l_bt');
+
+                $(this).prepend(rbt);
+                $(this).prepend(mbt);
+                $(this).prepend(lbt);
+
+
+                $(this)
+
+                $(this).mousedown(function(){
+                    lbt.removeClass('l_bt').addClass('l_btp');
+                    mbt.removeClass('m_bt').addClass('m_btp');
+                    rbt.removeClass('r_bt').addClass('r_btp');
+                });
+
+                $(this).mouseup(function(){
+                    lbt.removeClass('l_btp').addClass('l_bt');
+                    mbt.removeClass('m_btp').addClass('m_bt');
+                    rbt.removeClass('r_btp').addClass('r_bt');
+                });
+
+                $(this).mouseout(function(){
+                    lbt.removeClass('l_btp').addClass('l_bt');
+                    mbt.removeClass('m_btp').addClass('m_bt');
+                    rbt.removeClass('r_btp').addClass('r_bt');
+                });
+
+            });
+
+            $('#boton').click(function(){
+
+                $(this).blur();
+            });
+
+            html5forms.create(this);
+            //html5forms.submit=false;
+
+            var dataForm=$('#ajaxform3');
+
+            var options = {
+                form:       '#ajaxform3',
+                target:     '#test_target',
+                url:        dataForm.attr('action'),
+                type:       dataForm.attr('method')
+            };
+
+
+
+            $('#ajaxform3').submit(function(event){
+
+                if(html5forms.submit){
+                    //alert('Ajax submit:'+html5forms.submit);
+                    $(this).ajaxSubmit(o);
+
+                    return false;
+                }
+                else{alert('¬_¬ nel');
+                    //jaeevent.preventDefault();
+                }
+            });
+
+            $('#aboton').click(function(){
+
+
+                //$("form:first").trigger("submit");
+                $("#bt_sub").trigger('click');
+
+
+
+            });
+
+
+            //submitForm(options);
+
+        });
+
+        Modernizr.load({
+            test: Modernizr.cssgradients,
+            yep: 'js/jquery/jquery.css3finalize.min.js',
+            nope: '',
+            callback: function (url, result, key) {
+                //alert('script.js has loaded!:'+result);
+            }
+        });
+
+        //Modernizr.load('ielt8!/js/ie/selectivizr-min.js');
+    });
+
+
+</script>
+
+
+
+
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <base href="./" /><!--[if lte IE 6]></base><![endif]-->
+
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="">
+    <meta name="author" content="jaehoo">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Jquery Slide Animations Test</title>
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/main/style.css"/>
+    <link rel="stylesheet" href="css/html5forms.css"/>
+
+    <script src="js/modernizr/modernizr.custom.33627.js"></script>
+    <script src="js/modernizr/yepnope.css-prefix.js"></script>
+    <script src="js/modernizr/yepnope.ie-prefix.js"></script>
+
+    <script src="js/jquery/jquery-1.6.2.min.js"></script>
+    <script src="js/oz/oz.js"></script>
+
+    <script src="js/utils/html5forms.js"></script>
+
+
+
+
+
+
+</head>
+
+<body>
+
+<header class="header">
+    <!--HEADER   dateinput styling -->
+
+    <div class="bg_logo_oz">
+        <a>
+            <span class="logo_oz pngFix" title="Jaehoo Js Examples OZ">&nbsp;</span>
+        </a>
+    </div>
+</header>
+
+
+<div id="wrapper" >
+
+    <div id="content" class="clearfix">
+        <section>
+
+            <form id="#myform">
+
+                <label>Fecha:</label><br/>
+                <input type="date" class="date" data-value="2004-03-20" min="2004-02-20"/>
+
+
+                <input type="date"  placeholder="Selecciones una fecha" required /><br/>
+
+                <label>Email:</label><br/>
+                <input type="email" placeholder="correo electronico"
+                       title="Escribe tu email." required/><br/>
+
+                <br/>
+                <br/>
+
+                <div>
+                    <label>CURP:</label>
+                    <input name="curp" id="curp" type="text"
+                           class="required"
+                           placeholder="Escribe tu CURP" required />
+                </div>
+                <br/>
+
+                <div>
+                    <label>G&eacute;nero:</label>
+
+                    <select class="placeholder required in" name="gender" id="gendero" required="">
+                        <option selected="selected" class="placeholder" value="">Selecciona uno</option>
+                        <option>Masculino</option>
+                        <option>Femenino</option>
+                    </select>
+
+                </div><br/>
+
+                <div>
+                    <label>Apellido Paterno:</label>
+                    <input name="first_name" type="text"
+                           class="required"
+                           placeholder="Primer apellido"
+                           required />
+                </div><br/>
+
+                <div>
+                    <label>Apellido Materno:</label>
+                    <input name="last_name" type="text"
+                           class="required"
+                           placeholder="Segundo apellido"
+                           required />
+                </div><br/>
+
+                <div>
+                    <label>Nombre(s):</label>
+
+                    <input name="name" type="text"
+                           class="required placeholder"
+                           placeholder="Escribe tu nombre"
+                           required/>
+                </div><br/>
+
+                <div>
+                    <label>Fecha de Nacimiento:</label>
+                    <input type="date" value="Seleccionar fecha"
+                           size="18"
+                           title="Seleccione su fecha de nacimiento"
+                           placeholder="Selecciones una fecha"
+                           required=""/>
+                </div><br/>
+
+                <div>
+                    <label>RFC (Con homoclave):</label>
+                    <input name="rfc" type="text"
+                           class="required placeholder"
+                           pattern="^[a-zA-Z]{4,}(?:[0-9]{6,})(?:[a-zA-Z]{6,})(?:[0-9]{2,})"
+                           maxlength="18"
+                           required />
+                </div><br/>
+
+
+
+                <input type="submit">
+            </form>
+
+
+
+
+    </div>
+
+</div>
+
+
+
+
+</body>
+
+<script type="text/javascript">
+
+
+
+    Modernizr.load({
+                load:[
+                    'ielt8!js/ie/iepngfix_tilebg.js'
+                    , 'ielt9!ie9!css/main/style-ie.css'
+                    , 'js/jquery/jquery.tools.min.js'
+                    , 'css/dateinput.css'
+                    , 'js/jquery/jquery.cssmenu.js'
+                ]
+                , callback: {
+
+                    "jquery.tools.min.js": function () {
+                        console.info('loader');
+                        console.log("jquery loaded!");
+
+
+                        $.tools.dateinput.localize("es", {
+                            months: 'Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre',
+                            shortMonths:  'Ene,Feb,Mar,Abr,May,Jun,Jul,Ago,Sep,Oct,Nov,Dic',
+                            days:         'Domingo,Lunes,Martes,Miercoles,Jueves,Viernes,Sabado',
+                            shortDays:    'Dom,Lun,Mar,Mie,Jue,Vie,Sab'
+                        });
+
+                        $("input:date").dateinput({
+                            selectors: true
+                        });
+
+
+
+                    }
+                }
+            }
+    );
+
+    $(function(){
+
+        html5forms.create(this);
+
+        var btns=$('.abm_bt');
+        var el=$(document.createElement('span'));
+
+        btns.each(function(){
+
+            var lbt=el.clone();
+            var mbt=el.clone();
+            var rbt=el.clone();
+
+            var cont=$(this).html();
+
+            $(this).html('');
+
+            rbt.addClass('r_bt');
+            mbt.addClass('m_bt').html(cont);
+            lbt.addClass('l_bt');
+
+            $(this).prepend(rbt);
+            $(this).prepend(mbt);
+            $(this).prepend(lbt);
+
+
+            $(this)
+
+            $(this).mousedown(function(){
+                lbt.removeClass('l_bt').addClass('l_btp');
+                mbt.removeClass('m_bt').addClass('m_btp');
+                rbt.removeClass('r_bt').addClass('r_btp');
+            });
+
+            $(this).mouseup(function(){
+                lbt.removeClass('l_btp').addClass('l_bt');
+                mbt.removeClass('m_btp').addClass('m_bt');
+                rbt.removeClass('r_btp').addClass('r_bt');
+            });
+
+            $(this).mouseout(function(){
+                lbt.removeClass('l_btp').addClass('l_bt');
+                mbt.removeClass('m_btp').addClass('m_bt');
+                rbt.removeClass('r_btp').addClass('r_bt');
+            });
+
+        });
+
+        $('#boton').click(function(){
+
+            $(this).blur();
+        });
+
+        html5forms.create(this);
+        //html5forms.submit=false;
+
+        var dataForm=$('#ajaxform3');
+
+        var options = {
+            form:       '#ajaxform3',
+            target:     '#test_target',
+            url:        dataForm.attr('action'),
+            type:       dataForm.attr('method')
+        };
+
+
+
+        $('#ajaxform3').submit(function(event){
+
+            if(html5forms.submit){
+                //alert('Ajax submit:'+html5forms.submit);
+                $(this).ajaxSubmit(o);
+
+                return false;
+            }
+            else{alert('¬_¬ nel');
+                //jaeevent.preventDefault();
+            }
+        });
+
+        $('#aboton').click(function(){
+
+
+            //$("form:first").trigger("submit");
+            $("#bt_sub").trigger('click');
+
+
+
+        });
+
+        Modernizr.load({
+            test: Modernizr.cssgradients,
+            yep: 'js/jquery/jquery.css3finalize.min.js',
+            nope: '',
+            callback: function (url, result, key) {
+                //alert('script.js has loaded!:'+result);
+            }
+        });
+
+        //Modernizr.load('ielt8!/js/ie/selectivizr-min.js');
+    });
+
+
+</script>
+
+
+
+
+</html>

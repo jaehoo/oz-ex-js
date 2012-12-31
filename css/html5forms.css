@@ -14,7 +14,7 @@
 }
 .vform input, .vform select, .vform textarea {
 
- text-transform: uppercase;
+ text-transform: none;
 
 }
 .vform input {
@@ -58,7 +58,7 @@
     background-color: #feffa7;
 }
 .vform .mismatch {
-    background-image: url("../images/html5/mismatch.png");
+    background-image: url("../img/html5/mismatch.png");
     background-position: right center;
     background-repeat: no-repeat;
 

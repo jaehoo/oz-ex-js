@@ -13,6 +13,9 @@
     -pie-background: linear-gradient(#4DA1F8, #307DCD);
 }
 
+.bg_logo_oz{ -pie-background: linear-gradient(#FFFFFF, #f1f1f1);
+height: 100%; min-height: 100%;}
+
 /*IE tooltips*/
 span.show-tooltip-text { display: none; position: absolute;
     font-size: 0.9em;
@@ -33,4 +36,5 @@ span.show-tooltip-text { display: none; position: absolute;
 .info_main_banner
 , .divs
 , .header
+, .bg_logo_oz
 { behavior: url(js/ie/PIE.htc);}

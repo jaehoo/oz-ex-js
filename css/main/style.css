@@ -85,9 +85,9 @@ html, body{    height: 100%;    width: 100%;}
 body,h1,h2{    margin: 0;    padding:0;}
 
 body{
-    background-color:#fafafa;
-    color: #666;
-    font: 11px/15px Helvetica,Arial,sans-serif;
+
+    color: #424242;
+    font: 10pt Helvetica,Arial,sans-serif;
     text-align: left;
     background-color: #666;
 }
@@ -132,4 +132,182 @@ body > #wrapper {
     text-align: left;
     width: 920px;
 }
+
+
+
+/** END BASIC Styles**/
+
+
+.bg_logo_oz{
+    width:  260px;
+    float:left;
+    /*height: 84px;*/
+    display:inline-block;
+    /*text-align:center;*/
+    vertical-align: top;
+
+    height: inherit;
+    background: -moz-linear-gradient(center top , #FFFFFF, #f1f1f1) repeat scroll 0 0 transparent;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f1f1f1));
+}
+
+.logo_oz{
+    width:  204px;
+    height: 100%;
+    min-height: 82px;
+    margin:0 0 0 20px;
+    display:inline-block;
+    background: url('../../img/OrbitalZero201x80.png') no-repeat transparent;
+    cursor: pointer;
+}
+
+
+.oz_comments{
+    border:1px solid #9a9a9a;background:none repeat scroll 0 0 #f1f1f1;overflow:auto;margin: 5px 0; padding: 5px; display:block;
+}
+.oz_comments code{
+    line-height: 100%; font: 12px/18px Consolas, Monaco, Monospaced, monospace;
+}
+
+.oz_list{
+    list-style-type: disc;
+    list-style-position: inside;
+    padding: 10px;
+    margin: 0 10px;
+}
+
+.oz_list li mark{
+    font-weight: bold;
+    color: #333;
+    background-color: transparent;
+}
+
+form{
+    padding: 10px;
+    margin: 0 10px;
+}
+
+label {
+    padding: 3px 0;
+    vertical-align: middle;
+}
+
+input, button{
+    margin: 5px;
+    vertical-align: middle;
+}
+
+h2{
+    border-bottom:1px solid #bbb;padding:5px 0;
+}
+
+p.comment{
+    color: #757575;
+    font-family: Helvetica;
+    font-size: 10pt;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+h3{
+    padding: 5px;
+    margin: 5px 0px;
+}
+
+#aboton{
+     padding: 5px;
+    text-decoration: underline;
+    font-weight: bold;
+    color: blue;
+
+}
+
+#aboton:hover{
+    color:red;
+}
+
+
+/****************/
+/*Style Button */
+
+.abm_bt, .abm_bta{
+    display: inline-block;
+    padding: 4px 8px 5px;
+    margin: 3px;
+    cursor: pointer;
+    font-weight: lighter;
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 92%;
+    text-transform: uppercase;
+
+    background: transparent;
+    border: 0px;
+}
+
+.abm_bta{
+    border: 1px solid #DDDDDD;
+    background: url(../../img/backgrounds.png) repeat-x 0 -258px;
+}
+.abm_bta:hover{ color: #cc3333; background: #fff; }*/
+
+.info_side button.abm_bt{
+    text-align: left;
+    font-weight: bold;
+    font-size: 12px;
+    width: 98%;
+    padding: 4px 8px 3px;
+    text-transform: none;
+
+}
+
+
+
+
+.l_bt,.m_bt,.r_bt
+,.l_btp,.m_btp,.r_btp{
+    background-image: url('../../img/backgrounds.png') ;
+    background-color: transparent;
+    background-repeat: repeat-x;
+    display: inline-block;
+    height: 27px;
+    line-height: 26px;
+    vertical-align: middle;
+    text-align: center;
+    padding:0 !important;
+
+}
+
+.l_bt,.r_bt, .l_btp,.r_btp{
+    width: 14px !important;
+}
+
+button.abm_bt span{
+    width: 14px;
+    display: inline-block;
+
+}
+
+button.abm_bt span.m_bt
+,button.abm_bt span.m_btp{
+    width: auto;
+
+}
+
+.m_bt, .m_btp{ width: auto; text-shadow: 1px 1px 1px #fafafa !important;}
+
+.m_bt {   background-position: 0px -123px; }
+.m_btp {  background-position: 0px -204px;}
+
+.l_bt {  background-position: 0px -96px; }
+.l_btp{  background-position: 0px -177px;}
+
+.r_bt {  background-position: 0px -150px;}
+.r_btp{  background-position: 0px -231px;}
+.img_load{
+    display: inline-block;
+    margin-top: -2px;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+/*******END Styled buttons *******/
 
