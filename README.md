@@ -1,4 +1,4 @@
-oz-js-examples
+oz-ex-js
 ==============
 
-Examples with Java Script, Jquery Plugins, Animations, Pollyfills, etc...
+Examples with Java Script: Jquery Plugins, Animations, Pollyfills, etc...
